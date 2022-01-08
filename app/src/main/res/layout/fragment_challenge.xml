@@ -25,7 +25,7 @@
 			android:id="@+id/challenge_title"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="45sp"
+			android:layout_marginTop="30sp"
 			android:text="@{challenge.title}"
 			android:textColor="@color/color_text_main"
 			android:textSize="24sp"

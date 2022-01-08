@@ -42,8 +42,11 @@ class ChallengeFragment(private val viewModel: EchoViewModel, private val challe
             if (it) {
                 viewModel.getUsername()
                 binding.challengeDesc.visibility = View.INVISIBLE
-                binding.imageEarth.setImageResource(R.drawable.earth2)
+                binding.imageEarth.setImageResource(R.drawable.earth_after)
                 binding.participantsNum.text = (participants + 1).toString()
+                binding.btnCommon.text = "인증하기"
+                binding.btnCommon.setTextColor(resources.getColor(R.color.white))
+                binding.btnBg.setImageResource(R.drawable.btn_certification)
             }
         }
         viewModel.username.observe(requireActivity()) {
@@ -55,7 +58,12 @@ class ChallengeFragment(private val viewModel: EchoViewModel, private val challe
     private fun setupUI() {
         binding.lifecycleOwner = this
         binding.btnCommon.setOnClickListener {
-            viewModel.joinChallenge(challengeId)
+            if (binding.btnCommon.text == "동참하기") viewModel.joinChallenge(challengeId)
+            else {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.layout_container, FeedFragment(viewModel))
+                    .commit()
+            }
         }
     }
 }
