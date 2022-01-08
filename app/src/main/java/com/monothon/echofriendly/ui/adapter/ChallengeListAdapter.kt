@@ -12,6 +12,8 @@ import com.monothon.echofriendly.databinding.ItemChallengeBinding
 class ChallengeListAdapter : RecyclerView.Adapter<ChallengeListAdapter.ChallengeViewHolder>() {
     private var challengeList: List<Challenge> = listOf()
 
+    var onItemClick: (Challenge) -> Unit = {}
+
     fun resetList(list: List<Challenge>) {
         challengeList = list
         notifyDataSetChanged()
@@ -21,7 +23,9 @@ class ChallengeListAdapter : RecyclerView.Adapter<ChallengeListAdapter.Challenge
         ChallengeViewHolder(ItemChallengeBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: ChallengeViewHolder, position: Int) {
-        holder.bind(challengeList[position])
+        val challenge = challengeList[position]
+        holder.bind(challenge)
+        holder.itemView.setOnClickListener { onItemClick(challenge) }
     }
 
     override fun getItemCount(): Int = challengeList.size

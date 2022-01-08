@@ -29,10 +29,17 @@ class ChallengeListFragment(private val viewModel: EchoViewModel) : Fragment() {
 
         viewModel.getChallengeList()
 
+        configureUI()
         subscribeUI()
     }
 
     private fun subscribeUI() {
         viewModel.challengeList.observe(requireActivity()) { listAdapter.resetList(it) }
+    }
+
+    private fun configureUI() {
+        listAdapter.onItemClick = {
+            // TODO
+        }
     }
 }
