@@ -1,7 +1,5 @@
 package com.monothon.echofriendly.network
 
-import com.monothon.echofriendly.data.User
-
 /**
  * Created by Yeji on 2022/01/08.
  */
@@ -12,5 +10,5 @@ class EchoDataSource {
         null
     }
 
-    suspend fun testRequest(user: User) = retrofitService?.testRequest(user)
+    suspend fun getChallengeList() = retrofitService?.getChallengeList()
 }
