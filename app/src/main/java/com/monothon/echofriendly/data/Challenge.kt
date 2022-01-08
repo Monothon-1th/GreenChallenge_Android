@@ -5,5 +5,5 @@ package com.monothon.echofriendly.data
  */
 data class Challenge(
     val id: Int,
-    val name: String
+    val title: String
 )
