@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun subscribeUI() {
         viewModel.testString.observe(this) {
-            Log.d("ellie", "testString = $it")
+            binding.testButton.text = it
         }
     }
 }
