@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.monothon.echofriendly.R
-import com.monothon.echofriendly.databinding.FragmentMainBinding
+import com.monothon.echofriendly.databinding.FragmentChallengeListBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ class MainFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var binding: FragmentMainBinding
+    private lateinit var binding: FragmentChallengeListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +39,8 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_challenge_list, container, false)
+        return inflater.inflate(R.layout.fragment_challenge_list, container, false)
     }
 
     companion object {
