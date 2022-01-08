@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         val transaction = supportFragmentManager
             .beginTransaction()
-            .add(R.id.layout_container, ChallengeListFragment(viewModel))
+            .add(binding.layoutContainer.id, ChallengeListFragment(viewModel))
         transaction.commit()
     }
 }
