@@ -61,7 +61,7 @@ class ChallengeFragment(private val viewModel: EchoViewModel, private val challe
             if (binding.btnCommon.text == "동참하기") viewModel.joinChallenge(challengeId)
             else {
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.layout_container, FeedFragment(viewModel))
+                    .replace(R.id.layout_container, FeedListFragment(viewModel))
                     .commit()
             }
         }

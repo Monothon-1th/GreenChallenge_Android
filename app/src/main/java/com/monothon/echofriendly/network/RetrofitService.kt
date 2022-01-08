@@ -1,6 +1,7 @@
 package com.monothon.echofriendly.network
 
 import com.monothon.echofriendly.data.Challenge
+import com.monothon.echofriendly.data.Feed
 import com.monothon.echofriendly.data.User
 import com.monothon.echofriendly.data.request.JoinRequest
 import com.monothon.echofriendly.data.request.UsernameRequest
@@ -39,4 +40,7 @@ interface RetrofitService {
     suspend fun getUsername(
         @Body request: UsernameRequest
     ): Response<ResponseResultData<String>>
+
+    @GET("/api/list/all")
+    suspend fun getFeedList(): Response<ResponseResultData<List<Feed>>>
 }

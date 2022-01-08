@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<variable
+			name="feed"
+			type="com.monothon.echofriendly.data.Feed" />
+	</data>
+
+	<androidx.cardview.widget.CardView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		app:cardCornerRadius="10dp">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="10dp">
+
+			<ImageView
+				android:id="@+id/user_profile"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:set_image="@{feed.writerImageUrl}" />
+
+			<TextView
+				android:id="@+id/user_name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="12dp"
+				android:textColor="@color/black"
+				android:textSize="18dp"
+				app:layout_constraintBottom_toBottomOf="@id/user_profile"
+				app:layout_constraintStart_toEndOf="@id/user_profile"
+				app:layout_constraintTop_toTopOf="@id/user_profile"
+				app:user_text="@{feed.writerName}" />
+
+			<ImageView
+				android:id="@+id/photo"
+				android:layout_width="0dp"
+				android:layout_height="150dp"
+				android:layout_marginTop="10dp"
+				android:adjustViewBounds="true"
+				android:scaleType="fitXY"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/user_profile"
+				app:set_image="@{feed.list.imageUrl}" />
+
+			<TextView
+				android:id="@+id/date"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:textColor="@color/color_text_main"
+				android:textSize="17dp"
+				app:date_text="@{feed.list.createdAt}"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/photo" />
+
+			<TextView
+				android:id="@+id/content"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@{feed.list.title}"
+				android:textColor="@color/color_text_main"
+				android:textSize="17dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/date" />
+
+			<ImageView
+				android:id="@+id/ic_heart"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp"
+				android:src="@drawable/feather_heart"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/content" />
+
+			<TextView
+				android:id="@+id/tv_heart"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="5dp"
+				android:textColor="@color/color_text_main"
+				android:textSize="17dp"
+				app:layout_constraintBottom_toBottomOf="@id/ic_heart"
+				app:layout_constraintStart_toEndOf="@id/ic_heart"
+				app:layout_constraintTop_toTopOf="@id/ic_heart"
+				app:set_text="@{feed.list.heart}" />
+
+			<ImageView
+				android:id="@+id/ic_comment"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="12dp"
+				android:src="@drawable/chat"
+				app:layout_constraintBottom_toBottomOf="@id/ic_heart"
+				app:layout_constraintStart_toEndOf="@id/tv_heart"
+				app:layout_constraintTop_toTopOf="@id/ic_heart" />
+
+			<TextView
+				android:id="@+id/tv_comment"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="5dp"
+				android:textColor="@color/color_text_main"
+				android:textSize="17dp"
+				app:layout_constraintBottom_toBottomOf="@id/ic_heart"
+				app:layout_constraintStart_toEndOf="@id/ic_comment"
+				app:layout_constraintTop_toTopOf="@id/ic_heart"
+				app:set_text="@{feed.list.comment}" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.cardview.widget.CardView>
+</layout>

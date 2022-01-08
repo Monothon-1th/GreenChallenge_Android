@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.monothon.echofriendly.RESPONSE_CODE_OK
 import com.monothon.echofriendly.data.Challenge
+import com.monothon.echofriendly.data.Feed
 import com.monothon.echofriendly.data.User
 import com.monothon.echofriendly.network.EchoDataSource
 import kotlinx.coroutines.launch
@@ -20,6 +21,7 @@ class EchoViewModel : ViewModel() {
     val challenge = MutableLiveData<Challenge>()
     val joinSuccess = MutableLiveData(false)
     val username = MutableLiveData<String>()
+    val feedList = MutableLiveData<List<Feed>>()
     var userId: Int = 0
         private set
 
@@ -56,6 +58,14 @@ class EchoViewModel : ViewModel() {
         if (response?.code() == RESPONSE_CODE_OK) {
             username.value = response.body()?.data?.result
             Log.i("ellie", "username = ${username.value}")
+        }
+    }
+
+    fun getFeedList() = viewModelScope.launch {
+        val response = dataSource.getFeedList()
+        if (response?.code() == RESPONSE_CODE_OK) {
+            feedList.value = response.body()?.data?.result
+            Log.i("ellie", "feed list = ${feedList.value}")
         }
     }
 }

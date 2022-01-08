@@ -25,4 +25,6 @@ class EchoDataSource {
     )
 
     suspend fun getUsername(userId: Int) = retrofitService?.getUsername(UsernameRequest(userId))
+
+    suspend fun getFeedList() = retrofitService?.getFeedList()
 }

@@ -21,3 +21,13 @@ fun ImageView.setImage(url: String?) {
 fun TextView.setText(text: Int?) {
     this.text = text.toString()
 }
+
+@BindingAdapter("date_text")
+fun TextView.setDateText(text: String) {
+    this.text = text.split("T")[0].replace("-", ".")
+}
+
+@BindingAdapter("user_text")
+fun TextView.setUserText(text: String) {
+    this.text = "$text 님"
+}
