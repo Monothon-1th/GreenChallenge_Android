@@ -1,11 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
 	<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		tools:context=".ui.ChallengeFragment">
+
+		<include
+			android:id="@+id/top_bar"
+			layout="@layout/layout_top_bar"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" />
+
+		<TextView
+			android:id="@+id/challenge_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="45sp"
+			android:text="일회용품 줄이기"
+			android:textColor="@color/color_text_main"
+			android:textSize="22sp"
+			android:textStyle="bold"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/top_bar" />
+
+		<TextView
+			android:id="@+id/challenge_desc"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10sp"
+			android:text="일회용품 사용을 줄임으로써 \n쓰레기를 10배 이상 줄일 수 있어요!"
+			android:textColor="@color/color_text_desc"
+			android:textSize="13sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/challenge_title" />
+
+		<ImageView
+			android:id="@+id/image_earth"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			app:layout_constraintBottom_toTopOf="@id/participants_num"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/challenge_desc" />
+
+		<TextView
+			android:id="@+id/participants_num"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="16dp"
+			android:text="3,868"
+			android:textColor="@color/color_main3"
+			android:textSize="16sp"
+			app:layout_constraintBottom_toTopOf="@id/btn_join"
+			app:layout_constraintEnd_toStartOf="@id/participants_desc"
+			app:layout_constraintHorizontal_chainStyle="packed"
+			app:layout_constraintStart_toStartOf="parent" />
+
+		<TextView
+			android:id="@+id/participants_desc"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:text="명 참여중"
+			android:textColor="@color/color_text_sub"
+			android:textSize="16sp"
+			app:layout_constraintBottom_toBottomOf="@id/participants_num"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@id/participants_num"
+			app:layout_constraintTop_toTopOf="@id/participants_num" />
+
+		<Button
+			android:id="@+id/btn_join"
+			android:layout_width="312dp"
+			android:layout_height="60dp"
+			android:layout_marginBottom="80dp"
+			android:text="동참하기"
+			android:textColor="@color/color_text_sub"
+			android:textSize="18sp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent" />
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
