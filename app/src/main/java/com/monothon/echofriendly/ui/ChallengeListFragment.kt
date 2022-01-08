@@ -41,7 +41,9 @@ class ChallengeListFragment(private val viewModel: EchoViewModel) : Fragment() {
             binding.challengeList.adapter = listAdapter
         }
         listAdapter.onItemClick = {
-            // TODO
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.layout_container, ChallengeFragment(viewModel, it.id))
+                .commit()
         }
     }
 

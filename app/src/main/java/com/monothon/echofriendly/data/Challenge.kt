@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName
 data class Challenge(
     val id: Int,
     val title: String,
+    val description: String,
     val tag: String,
     var participants: Int,
     @SerializedName("image")
