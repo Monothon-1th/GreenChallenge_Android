@@ -19,13 +19,14 @@ class EchoViewModel : ViewModel() {
     val challengeList = MutableLiveData<List<Challenge>>()
     val challenge = MutableLiveData<Challenge>()
     val joinSuccess = MutableLiveData(false)
+    val username = MutableLiveData<String>()
     var userId: Int = 0
         private set
 
     fun getUserId() = viewModelScope.launch {
         val response = dataSource.getUserId(User("user1", "1234"))
         if (response?.code() == RESPONSE_CODE_OK) {
-            userId = response.body()?.data?.result ?: 0
+            userId = response.body()?.data?.userId ?: 0
         }
     }
 
@@ -47,6 +48,14 @@ class EchoViewModel : ViewModel() {
         val response = dataSource.joinChallenge(userId, challengeId)
         if (response?.code() == RESPONSE_CODE_OK) {
             joinSuccess.value = true
+        }
+    }
+
+    fun getUsername() = viewModelScope.launch {
+        val response = dataSource.getUsername(userId)
+        if (response?.code() == RESPONSE_CODE_OK) {
+            username.value = response.body()?.data?.result
+            Log.i("ellie", "username = ${username.value}")
         }
     }
 }

@@ -31,14 +31,24 @@ class ChallengeFragment(private val viewModel: EchoViewModel, private val challe
         setupUI()
     }
 
+    private var participants = 0
+
     private fun subscribeUI() {
         viewModel.challenge.observe(requireActivity()) {
             binding.challenge = it
+            participants = it.participants
         }
         viewModel.joinSuccess.observe(requireActivity()) {
             if (it) {
-                // TODO
+                viewModel.getUsername()
+                binding.challengeDesc.visibility = View.INVISIBLE
+                binding.imageEarth.setImageResource(R.drawable.earth2)
+                binding.participantsNum.text = (participants + 1).toString()
             }
+        }
+        viewModel.username.observe(requireActivity()) {
+            binding.thanksFor.visibility = View.VISIBLE
+            binding.userName.text = it
         }
     }
 

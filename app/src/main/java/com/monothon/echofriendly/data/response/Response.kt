@@ -16,3 +16,7 @@ data class ResponseSimpleData<T>(
 data class ResultResponse<T>(
     val result: T
 )
+
+data class UserIdResponse(
+    val userId: Int
+)

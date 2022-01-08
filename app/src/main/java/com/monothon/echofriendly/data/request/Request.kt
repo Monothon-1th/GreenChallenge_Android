@@ -7,3 +7,7 @@ data class JoinRequest(
     val userId: Int,
     val challengeId: Int
 )
+
+data class UsernameRequest(
+    val userId: Int
+)
