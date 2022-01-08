@@ -9,13 +9,22 @@
 	<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		android:layout_height="100dp">
+
+		<ImageView
+			android:id="@+id/challenge_image"
+			android:foreground="#65000000"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:set_image="@{challenge.imageUrl}"/>
 
 		<TextView
 			android:id="@+id/challenge_name"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:text="@{challenge.title}"
+			android:textSize="20sp"
+			android:textColor="@color/black"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
