@@ -9,6 +9,6 @@ import retrofit2.http.GET
  * Created by Yeji on 2022/01/08.
  */
 interface RetrofitService {
-    @GET
+    @GET("/api/challenge/all")
     suspend fun getChallengeList(): Response<ResponseData<ChallengeListResponse>>
 }

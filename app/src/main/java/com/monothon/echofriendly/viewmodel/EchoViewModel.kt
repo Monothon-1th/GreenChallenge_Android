@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 class EchoViewModel : ViewModel() {
     private val dataSource = EchoDataSource()
 
-    private val challengeList = MutableLiveData<List<Challenge>>()
+    val challengeList = MutableLiveData<List<Challenge>>()
 
     fun getChallengeList() = viewModelScope.launch {
         val response = dataSource.getChallengeList()
