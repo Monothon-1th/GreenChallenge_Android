@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.monothon.echofriendly.R
 import com.monothon.echofriendly.databinding.FragmentChallengeBinding
+import com.monothon.echofriendly.viewmodel.EchoViewModel
 
-class ChallengeFragment : Fragment() {
+class ChallengeFragment(private val viewModel: EchoViewModel) : Fragment() {
     private lateinit var binding: FragmentChallengeBinding
 
     override fun onCreateView(

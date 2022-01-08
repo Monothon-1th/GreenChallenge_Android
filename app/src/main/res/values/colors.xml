@@ -15,4 +15,6 @@
 	<color name="color_text_main">#191919</color>
 	<color name="color_text_sub">#212121</color>
 	<color name="color_text_desc">#747474</color>
+	<color name="color_search">#F1F1F5</color>
+	<color name="color_tag">#CD616161</color>
 </resources>

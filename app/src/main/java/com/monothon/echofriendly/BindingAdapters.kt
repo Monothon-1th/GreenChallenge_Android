@@ -1,6 +1,7 @@
 package com.monothon.echofriendly
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -14,4 +15,9 @@ fun ImageView.setImage(url: String?) {
             .load(url)
             .into(this)
     }
+}
+
+@BindingAdapter("set_text")
+fun TextView.setText(text: Int?) {
+    this.text = text.toString()
 }

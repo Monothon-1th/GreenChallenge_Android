@@ -1,5 +1,6 @@
 package com.monothon.echofriendly.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,6 +21,7 @@ class EchoViewModel : ViewModel() {
         val response = dataSource.getChallengeList()
         if (response?.code() == RESPONSE_CODE_OK) {
             challengeList.value = response.body()?.data?.result
+            Log.i("ellie", "${challengeList.value}")
         }
     }
 }
