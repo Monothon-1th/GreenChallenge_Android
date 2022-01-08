@@ -1,10 +1,10 @@
-package com.monothon.echofriendly
+package com.monothon.echofriendly.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.monothon.echofriendly.R
 import com.monothon.echofriendly.databinding.ActivityMainBinding
 import com.monothon.echofriendly.viewmodel.EchoViewModel
 
@@ -21,15 +21,11 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         subscribeUI()
-
-        binding.testButton.setOnClickListener {
-            viewModel.test()
-        }
     }
 
     private fun subscribeUI() {
         viewModel.testString.observe(this) {
-            binding.testButton.text = it
+
         }
     }
 }
