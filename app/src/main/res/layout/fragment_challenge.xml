@@ -78,14 +78,26 @@
 			app:layout_constraintStart_toEndOf="@id/participants_num"
 			app:layout_constraintTop_toTopOf="@id/participants_num" />
 
+		<ImageView
+			android:layout_width="0dp"
+			android:layout_height="120dp"
+			android:layout_marginBottom="45dp"
+			android:scaleType="fitXY"
+			android:src="@drawable/btn_join"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent" />
+
 		<Button
 			android:id="@+id/btn_join"
 			android:layout_width="312dp"
 			android:layout_height="60dp"
 			android:layout_marginBottom="80dp"
 			android:text="동참하기"
+			android:textStyle="bold"
 			android:textColor="@color/color_text_sub"
 			android:textSize="20sp"
+			android:background="@android:color/transparent"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent" />
