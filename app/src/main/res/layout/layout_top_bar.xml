@@ -10,6 +10,8 @@
 		android:layout_height="28dp"
 		android:layout_marginStart="24dp"
 		android:layout_marginTop="14dp"
+		android:src="@drawable/back"
+		android:background="@android:color/transparent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
