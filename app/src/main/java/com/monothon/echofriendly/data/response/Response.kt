@@ -13,3 +13,7 @@ data class ResponseData<T>(
 data class ChallengeListResponse(
     val result: List<Challenge>
 )
+
+data class UserResponse(
+    val result: Int
+)

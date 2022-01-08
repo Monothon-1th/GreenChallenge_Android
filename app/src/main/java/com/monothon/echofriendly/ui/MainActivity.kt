@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        viewModel.getUserId()
+
         val transaction = supportFragmentManager
             .beginTransaction()
             .add(binding.layoutContainer.id, ChallengeListFragment(viewModel))
