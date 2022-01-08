@@ -35,6 +35,7 @@
 			android:text="일회용품 사용을 줄임으로써 \n쓰레기를 10배 이상 줄일 수 있어요!"
 			android:textColor="@color/color_text_desc"
 			android:textSize="15sp"
+			android:gravity="center"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@id/challenge_title" />
