@@ -40,6 +40,11 @@ class FeedListFragment(private val viewModel: EchoViewModel) : Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
             binding.feedList.adapter = listAdapter
         }
+        binding.fab.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.layout_container, CertificationFragment(viewModel))
+                .commit()
+        }
     }
 
     private fun subscribeUI() {
