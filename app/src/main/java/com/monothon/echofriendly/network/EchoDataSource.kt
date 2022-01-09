@@ -34,7 +34,7 @@ class EchoDataSource {
     suspend fun createList(imagePath: String?, category: String, userId: Int, title: String): Response<Unit>? {
         val imagePart = if (imagePath != null) {
             val file = File(imagePath)
-            FormFileUtil.getImageBody("file", file)
+            FormFileUtil.getImageBody("image", file)
         } else null
 
         val categoryPart = FormFileUtil.getBody("category", category)

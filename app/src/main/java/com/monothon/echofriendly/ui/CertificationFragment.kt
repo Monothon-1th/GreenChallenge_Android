@@ -42,7 +42,7 @@ class CertificationFragment(private val viewModel: EchoViewModel) : Fragment() {
     private fun configureUI() {
         binding.camera.setOnClickListener { checkPermission() }
         binding.certify.setOnClickListener {
-            viewModel.createList(imageFile?.path, binding.title.text.toString(), binding.textTitle.text.toString())
+            viewModel.createList(imageFile?.path, binding.title.text.toString(), binding.editText.text.toString())
         }
     }
 
