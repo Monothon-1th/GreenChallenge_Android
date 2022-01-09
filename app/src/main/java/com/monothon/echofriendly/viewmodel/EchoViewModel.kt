@@ -20,6 +20,7 @@ class EchoViewModel : ViewModel() {
     val challengeList = MutableLiveData<List<Challenge>>()
     val challenge = MutableLiveData<Challenge>()
     val joinSuccess = MutableLiveData(false)
+    val createSuccess = MutableLiveData(false)
     val username = MutableLiveData<String>()
     val feedList = MutableLiveData<List<Feed>>()
     var userId: Int = 0
@@ -66,6 +67,13 @@ class EchoViewModel : ViewModel() {
         if (response?.code() == RESPONSE_CODE_OK) {
             feedList.value = response.body()?.data?.result
             Log.i("ellie", "feed list = ${feedList.value}")
+        }
+    }
+
+    fun createList(imagePath: String?, category: String, title: String) = viewModelScope.launch {
+        val response = dataSource.createList(imagePath, category, userId, title)
+        if (response?.code() == RESPONSE_CODE_OK) {
+            createSuccess.value = true
         }
     }
 }

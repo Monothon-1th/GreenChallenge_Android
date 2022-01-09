@@ -36,10 +36,24 @@ class CertificationFragment(private val viewModel: EchoViewModel) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         configureUI()
+        subscribeUI()
     }
 
     private fun configureUI() {
         binding.camera.setOnClickListener { checkPermission() }
+        binding.certify.setOnClickListener {
+            viewModel.createList(imageFile?.path, binding.title.text.toString(), binding.textTitle.text.toString())
+        }
+    }
+
+    private fun subscribeUI() {
+        viewModel.createSuccess.observe(requireActivity()) {
+            if (it) {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.layout_container, FeedListFragment(viewModel))
+                    .commit()
+            }
+        }
     }
 
     private fun checkPermission() {

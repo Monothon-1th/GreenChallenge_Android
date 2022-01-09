@@ -8,11 +8,9 @@ import com.monothon.echofriendly.data.request.UsernameRequest
 import com.monothon.echofriendly.data.response.ResponseSimpleData
 import com.monothon.echofriendly.data.response.ResponseResultData
 import com.monothon.echofriendly.data.response.UserIdResponse
+import okhttp3.MultipartBody
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 /**
  * Created by Yeji on 2022/01/08.
@@ -43,4 +41,14 @@ interface RetrofitService {
 
     @GET("/api/list/all")
     suspend fun getFeedList(): Response<ResponseResultData<List<Feed>>>
+
+    @Multipart
+    @POST("/api/list/create")
+    suspend fun createList(
+        @Part image: MultipartBody.Part?,
+        @Part category: MultipartBody.Part,
+        @Part writerId: MultipartBody.Part,
+        @Part title: MultipartBody.Part,
+        @Part text: MultipartBody.Part
+    ): Response<Unit>
 }
